@@ -22,3 +22,18 @@ Common examples include intercepting traffic on public Wi-Fi, DNS spoofing, and 
   It is a version of EAP, or Extensible Authentication Protocol that adds a layer of encryption, making it more secure for enterprise networks by using server-side certificates and protecting legacy protocols like MS-CHAPv2 within the tunnel.
   - MS-CHAPv2 stands for the Microsoft Challenge Handshake Authentication Protocol version 2.
     It is a password-based authentication protocol used to verify the identity of users or devices attempting to connect to a network or remote server, commonly in VPN solutions.
+- Jump server is a secure computer used as a controlled gateway to access other systems on a private network from a less trusted one, like the internet.
+  It acts as an intermediary, also called a bastion host or jump host, allowing remote administrators to manage internal resources without directly exposing them.
+  Jump servers enhance security by filtering traffic, logging all administrative activity, and reducing the overall attack surface to a single, hardened point of entry.  
+- Buffer Overflow is a software coding error or vulnerability that occurs when a program attempts to store more data in a temporary memory location (a buffer_ than it was allocated to hold. The excess data "overflows" into adjacent memory locations, overwriting or corrupting the data in those areas.
+- NGFW, or Next-Generation Firewall is a network security devices that combines traditional firewall capabilities with advanced threat-prevention features like deep packet inspection (DPI), an integrated intrusion prevention system (IPS), and application awareness.
+  - DPI stands for Deep Packet Inspection, a network traffic analysis technique that examines the full content of data packet, not just the header information like traditional firewalls.
+    This allows for the indentification and blocking of threats like malware, intrusions, and policy violations, providing a more afvanced level of network security.
+    DPI is used to monitor traffic in real-time, helping to detect risks, ensure correct data formats, and manage network performance.
+  - IPS stands for Intrusion Prevention System, a cybersecurity tool that monitors network traffic for malicious activity and automatically takes action to block it in real-time.
+- WAF stands for Web Application Firewall, a security measure tht protects web applications by monitoring and filtering malicious HTTP/S traffic between the application and the internet.
+  It acts as a reverse proxy, analyzing traffic to block common attacks like SQL Injection and XXS or Cross-Site Scriptiong before they can compromise the application or steal data.
+- TLS, or Transport Layer Security, is a cryptographic protocol that secures communications over networks like the internet by ensuring data is pricate, authentic, and can't be tampered with.
+  It is bet known for securing web browsing (HTTPS) but is also used for other applications such as email, voice over IP (VoIP), and virtual private networks (VPNs).
+  TLS is the successor to the deprecated SSL (Secure Sockets Layer) protocol.
+- SD-WAN, or Software-Defined Wide Area Network refers to a networking technology that uses software to manage and optimize network connectivity across multiple locations, like branch offices and data centers.
