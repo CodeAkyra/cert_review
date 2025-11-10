@@ -37,3 +37,12 @@ Common examples include intercepting traffic on public Wi-Fi, DNS spoofing, and 
   It is bet known for securing web browsing (HTTPS) but is also used for other applications such as email, voice over IP (VoIP), and virtual private networks (VPNs).
   TLS is the successor to the deprecated SSL (Secure Sockets Layer) protocol.
 - SD-WAN, or Software-Defined Wide Area Network refers to a networking technology that uses software to manage and optimize network connectivity across multiple locations, like branch offices and data centers.
+
+- Typosquatting is a type of cybercrime wher criminals register domain names that are common misspelling of legitimate websites to trick users into visiting their malicious sites.
+- Smishing is a type of cybercrime that uses text messages (SMS) to trick people into revealing personal information. It is a portmanteau of "SMS" and "phishing", and attackers send fraudulent text messages that appear to be from legitimate sources, like banks or delivery services, to get victims to click malicious links, download malware, or provide sensitive data.
+- Phishing attack aims to trick the recipient into falling for the attacker's desired action, such as revealing financial information, system login credentials, or other sensitive information.
+- Vishing is "voice phishing" a scam where criminal use phone calls to trick people into giving up personal and financial information like bank account details, credit card numbers, or passwords.
+
+#nag leave aq sa question 10
+
+
