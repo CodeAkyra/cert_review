@@ -1,0 +1,24 @@
+- On-Path Attack is a cyberattack where an attacker intercepts and potentially alters communications between two parties by positioning themselves on the network path between them, a tactic also known as a man in the middle (MitM) attack.
+The attacker can secretly monitor, steal, or change data being changed, making the victims believe they are comminicating directly with each other.
+Common examples include intercepting traffic on public Wi-Fi, DNS spoofing, and SSL stripping
+  - DNS spoofing is a cyber attack where malicious actors corrupt a DNS server's data to redirect users from a legitimate website to a fake one.
+  - SSL stripping (also known as HTTPS stripping or an SSL downgrading attack) is a type of cyberattack where an attacker intercepts a user's web browser traffic and forces the browser to connect to an unsecured version of a website (HTTP) insted of the secure version (HTTPS).
+    This removes the protection provided by SSL/TLS ecryption, allowing the attacker to eavesdrop on the entire communication.
+
+- COPE (Corporate-Owned, Personally-Enabled) Mobile Device Management Policy is a strategy where company provides empoyees with mobile devices that they can use for both work and personal tasks.
+- XXS which stands for Cross-Site Scripting. It is an attack where a malicious script is injected into a trusted website and then executed by a victim's browser.
+- Non-repudation is a security concept that ensures a party cannot deny their involvement in a digital transaction, such as sending a message or signing a document.
+- Salting is a security technique that adds a unique, random string of characters (a "salt") to a password before it's hashed.
+  This makes it much harder for attackers to user precomputed lists like rainbow tables to crack passwords, because even if two users have the same password, their resulting hashes will be different due to their unique salts.
+  Both the salt and the final hash are stored in the database, and the salt is retrieved and combined with the password during a login attempt for authentication.
+  - Rainbow table is a precomputed table of hashed passwords used in a cybersecurity attack to quickly reverse hashes and find the original plaintext password.
+    Attackers can use a stolen database of hased passwords and rainbow table to crack them without needing to perform a slow brute-force attack. The effectiveness of this attack is largely negated by the use of salting, which adds a unique random value to each password before hashing, making precomputed rainbow tables useless.
+
+- SSO stands for Single Sign-On, an authentication method that allows users to log in once with a single set of credentials to access multiple applications and services.
+- LEAP primarily refer to the Lightweight Extensible Authentication Protocol, a Cisco-proprietary method for authenticating users on wireless networks.
+  An authentication framework for wireless and point-to-point connections that validates user credentials before granting network access.
+- MFA, or Multi-Factor Authentication, is a cybersecurity method that required two or more different verification factors to log in to an account, system, or network.
+- PEAP stands for Protected Extensible Authentication Protocol, is a security protocol that secures wireless and wired network authentication by creating an encrypted Transport Layer Security (TLS) tunnel to protect data, such as user credentials.
+  It is a version of EAP, or Extensible Authentication Protocol that adds a layer of encryption, making it more secure for enterprise networks by using server-side certificates and protecting legacy protocols like MS-CHAPv2 within the tunnel.
+  - MS-CHAPv2 stands for the Microsoft Challenge Handshake Authentication Protocol version 2.
+    It is a password-based authentication protocol used to verify the identity of users or devices attempting to connect to a network or remote server, commonly in VPN solutions.
