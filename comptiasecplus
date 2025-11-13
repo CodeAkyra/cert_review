@@ -1,3 +1,12 @@
+- Hacktivist a person who gains unauthorized access to computer files or networks in order to futher social or political ends.
+- Key stretching is a cryptographic technique that strengthens weak passwords or keys by repeatedly applying a hasing function to them.
+- Data masking is a security technique that hides or replaces sensitive data with realistic, but fictitious information.
+  This process, also called data obfuscation, creates a usable copy of a dataset for non-production environments like testing and training without risking exposure of the original confidential data.
+- Steganography, the practice of concealing messages or information within other nonsecret text or data.
+- SaaS (Software as a Service) refers to the delivery model of cloud-based software and the specific security measures needed to protect these applications and their data.
+  SaaS security involves a shared responsibility between the provider, who secures the underlying infrastructure, and the customer who must manage their own data access, configuration, and user permissions.
+
+
 - On-Path Attack is a cyberattack where an attacker intercepts and potentially alters communications between two parties by positioning themselves on the network path between them, a tactic also known as a man in the middle (MitM) attack.
 The attacker can secretly monitor, steal, or change data being changed, making the victims believe they are comminicating directly with each other.
 Common examples include intercepting traffic on public Wi-Fi, DNS spoofing, and SSL stripping
@@ -43,6 +52,13 @@ Common examples include intercepting traffic on public Wi-Fi, DNS spoofing, and 
 - Phishing attack aims to trick the recipient into falling for the attacker's desired action, such as revealing financial information, system login credentials, or other sensitive information.
 - Vishing is "voice phishing" a scam where criminal use phone calls to trick people into giving up personal and financial information like bank account details, credit card numbers, or passwords.
 
-#nag leave aq sa question 10
+- RADIUS stands for Remote Authentication Dial-In User Service.
+  It is a networking protocol that provides a centralized way to manage access to a network by handing Authentication, Authorization, and Accounting (AAA) for users.
+- AAA or Authentication, Authorization, Accounting.
+  Authentication - Verifies the user's credentials such as a username and password or a certificate.
+  Authorization - Determines the level of access the user is granted, such as which services they can use or what bandwidth they can consume.
+  Accounting - Records the user's session, including login and logout times, data usage, and other session details.
+
+- HSM or Hardware Security Module, a physical device that securely generates, stores, and manages cryptographic keys.
 
 
