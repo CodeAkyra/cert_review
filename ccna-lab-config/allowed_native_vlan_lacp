@@ -1,0 +1,59 @@
+Tasks
+All physical cabling is in place and verified. Router R1 is configured and passing traffic for VLANs 5 and 6. 
+All relevant ports are pre-configured as 802.1q trunks.
+1. Configure SW1 port F0/10 to permit only VLANS 5 and 6
+2. Configure both SW1 and SW2’s F0/1 ports to send and receive untagged traffic over VLAN 77
+3. Configure SW2 F0/2 port to permit only VLAN 6
+4. Configure both SW3 and SW4 ports F0/10 and F0/11 for link aggregation using the industry standard 
+protocol with the following requirements:
++ SW3 ports must immediately negotiate the aggregation protocol
++ SW4 ports must not initiate the negotiation for the aggregation protocol
++ Use the designated number assignment
+
+
+1.
+  SW1
+    en
+      conf t
+        int f0/10
+          switchmode trunk allowed vlan 5-6
+          exit
+        do sh int trunk
+2.
+  SW1
+    en
+      conf t
+        int f0/1
+          switchmode trunk native vlan 77
+          exit
+        do sh int trunk
+  SW2
+    en
+      conf t
+        int f0/1
+          switchmode trunk native vlan 77
+          exit
+        do sh int trunk
+3.
+  SW2
+    en
+      conf t
+        int f0/2
+          switchmode trunk allowed vlan 6
+          exit
+        do sh int trunk
+4.
+  SW3
+    en
+      conf t
+        int range f0/10-11
+          channel-group 32 mode active
+          exit
+        do sh etherchannel sum
+  SW4
+    en
+      conf t
+        int range f0/10-11
+          channel-group 32 mode passive
+          exit
+        do sh etherchannel sum
