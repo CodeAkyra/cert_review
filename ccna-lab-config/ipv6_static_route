@@ -1,0 +1,52 @@
+Tasks
+All physical cabling is in place. Configurations should ensure that connectivity is established end-to-end.
+1. Configure a route on R1 to ensure that R1 prefers R2 to reach the 2001:db8:41::/64 network
+2. Configure a floating route on R1, and ensure that R1 uses R3 to reach the 2001:db8:41::/64 network if the connection between R1 and R2 is down
+3. Ping and traceroute should be working
+
+1.
+  R1
+    en
+      conf t
+        ipv6 route 2001:db8:41::/64 2001:db8:12::6 #R2 IPv6 Address
+        do sh ipv6 route #should be static
+        exit
+2.
+  R1
+    en
+      conf t
+      ipv6 route 2001:db8:41::/64 2001:db8:13::8 10
+      do sh ipv6 route #should be the same sa first config
+      exit
+    int g0/0
+      shut
+      exit
+    do sh ipv6 route #confirm if 2001:db8:13::8 is the new static route, acting like a failover
+3.
+  R1
+    #if the line between R1 and R2 isn't down
+      R1(config)#do traceroute 2001:db8:41::10
+      Type escape sequence to abort.
+      Tracing the route to 2001:db8:41::10
+      
+        1   2001:DB8:12::6 0 msec    0 msec    0 msec    
+        2   2001:DB8:24::4 0 msec    0 msec    0 msec    
+        3   2001:DB8:41::10 0 msec    0 msec    0 msec    
+
+    #if the line between R1 and R2 is down and R3 is currently the new route acting as a failover
+      %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to administratively down
+      
+      %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to down
+      
+      03:37:00: %OSPFv3-5-ADJCHG: Process 1, Nbr 10.2.2.2 on GigabitEthernet0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+      
+      R1(config)#do traceroute 2001:db8:41::10
+      Type escape sequence to abort.
+      Tracing the route to 2001:db8:41::10
+      
+        1   2001:DB8:13::8 1 msec    0 msec    0 msec    
+        2   2001:DB8:34::4 5 msec    17 msec   0 msec    
+        3   2001:DB8:41::10 0 msec    0 msec    18 msec   
+
+
+
