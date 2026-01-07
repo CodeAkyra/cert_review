@@ -1,0 +1,73 @@
+Tasks
+
+Configure IPv4 and IPv6 connectivity between two routers. 
+For IPv4, use a /28 network from the 192.168.180.0/24 private range. For IPv6, use the first /64 subnet from the 2001:0db8:acca::/48 subnet.
+
+1. Using GigabitEthernet0/1 on routers R1 and R2, configure the next usable /28 from the 192.168.180.0/24 range. 
+The network 192.168.180.0/28 is unavailable.
+
+2. For the IPv4 /28 subnet, router R1 must be configured with the first usable host address.
+
+3. For the IPv4 /28 subnet, router R2 must be configured with the last usable host address.
+
+4. For the IPv6 /64 subnet, configure the routers with the IP addressing provided from the topology.
+
+5. A ping must work between the routers on the IPv4 and IPv6 address ranges.
+
+1.
+
+subnetting
+    192.168.180.0/28, 4th, i16
+
+    N 192.168.180.0/28
+    H 192.168.180.1 - 192.168.180.14
+    B 192.168.180.15
+
+    N 192.168.180.16
+    H 192.168.180.17 - 192.168.180.30
+    B 192.168.180.31
+
+    LN 192.168.180.32
+2.
+  R1
+    en
+      conf t
+        int g0/1
+          ip add 192.168.180.17 255.255.255.240
+          no shut
+          do wr
+          exit
+        do sh ip int br
+3.  
+  R2
+    en
+      conf t
+        int g0/1
+          ip add 192.168.180.30 255.255.255.240
+          no shut
+          do wr
+          exit
+        do sh ip int br
+4.
+  R1
+    int g0/1
+      ipv6 add 2001:db8:acca::1/64
+      do wr
+      exit
+    do sh ipv6 int br
+  R2
+    int g0/1
+      ipv6 add 2001:db8:acca::2/64
+      do wr
+      exit
+    do sh ipv6 int br
+5.
+  R1
+    ping 192.168.180.30
+    ping 2001:db8:acca::2/64
+  R2
+    ping 192.168.180.17
+    ping 2001:db8:acca::1/64
+      
+
+  
