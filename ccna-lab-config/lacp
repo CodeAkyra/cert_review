@@ -1,0 +1,99 @@
+Tasks
+
+Physical connectivity is implemented between the two Layer 3 switches, 
+and the network connectivity between them must be configured.
+
+1. Configure an LACP EtherChannel and number it as 44; configure it between
+ switches SW1 and SW2 using interfaces FastEthernet0/1 and FastEthernet0/2 on both sides. 
+The LACP mode must match on both ends.
+
+2. Configure the EtherChannel as a trunk link.
+
+3. Configure the trunk link with 802.1q tags.
+
+4. Configure VLAN ‘MONITORING’ as the untagged VLAN of the EtherChannel.
+
+
+1.
+  SW1
+    en
+      conf t
+        int range f0/1-2
+          channel-group 44 mode active
+          do wr
+          exit
+  SW2
+    en
+      conf t
+        int range f0/1-2
+        channel-group 44 mode active
+        do wr
+        exit
+      do sh etherchannel sum
+
+      Number of channel-groups in use: 1
+      Number of aggregators:           1
+      
+      Group  Port-channel  Protocol    Ports
+      ------+-------------+-----------+----------------------------------------------
+      
+      44     Po44(SU)           LACP   Fa0/1(P) Fa0/2(P) 
+
+2. and 3.
+#etherchannels are trunk links specificlly using 802.1q
+  SW1
+    en
+      conf t
+        int po44
+          switchport trunk encapsulation dot1q
+          switchport mode trunk
+          do wr
+          exit
+  SW2
+    en
+      conf t
+        int po44
+          switchport trunk encapsulation dot1q
+          switchport mode trunk
+          do wr
+          exit
+        do sh int trunk
+        Port        Mode         Encapsulation  Status        Native vlan
+        Po44        on           802.1q         trunking      1
+        
+        Port        Vlans allowed on trunk
+        Po44        1-1005
+        
+        Port        Vlans allowed and active in management domain
+        Po44        1,746
+        
+        Port        Vlans in spanning tree forwarding state and not pruned
+        Po44        none
+
+4.
+  SW1
+    en
+      conf t
+        int po44
+          switchport trunk native vlan 746
+          Sw1(config-if)#%SPANTREE-2-RECV_PVID_ERR: Received BPDU with inconsistent peer vlan id 1 on Port-channel44 VLAN746.
+          #BPDU prevents switches from causing broadcast storm
+
+          %SPANTREE-2-BLOCK_PVID_LOCAL: Blocking Port-channel44 on VLAN0746. Inconsistent local vlan.
+          do wr
+  SW2
+    en
+      conf t
+        int po44
+          switchport trunk native vlan 746
+          do wr
+          exit
+        do sh int trunk
+        Port        Mode         Encapsulation  Status        Native vlan
+        Po44        on           802.1q         trunking      746
+
+  SW1
+    %SPANTREE-2-UNBLOCK_CONSIST_PORT: Unblocking Port-channel44 on VLAN0001. Port consistency restored.
+
+    %SPANTREE-2-UNBLOCK_CONSIST_PORT: Unblocking Port-channel44 on VLAN0746. Port consistency restored.
+
