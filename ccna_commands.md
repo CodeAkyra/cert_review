@@ -55,7 +55,6 @@
 | `enable secret C1sc0123` | Set encrypted privileged EXEC password |
 | `service password-encryption` | Encrypt all plaintext passwords in running-config |
 | `no ip domain-lookup` | Stop router trying to DNS-resolve mistyped commands |
-| `banner motd #Unauthorized Access Prohibited#` | Set login warning banner |
 | `line console 0` | Enter console line config |
 | > `password C1sc0123` | Set console password |
 | > `login` | Enable password check on console |
