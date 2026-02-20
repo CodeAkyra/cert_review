@@ -2,7 +2,7 @@
 
 ## 1. ROUTER / SWITCH MODE & NAVIGATION
 
-| Commands | Description |
+| Command | Description |
 | -------- | ----------- |
 | `enable` / `en` | Enter privileged EXEC mode (Router#) |
 | `configure terminal` / `conf t` | Enter Global Configuration mode (Router(config)#) |
@@ -16,7 +16,7 @@
 
 ## 2. ESSENTIAL SHOW COMMANDS
 
-| Commands | Description |
+| Command | Description |
 | -------- | ----------- |
 | `show running-config` / `sh run` | View current active configuration |
 | `show ip interface brief` / `sh ip in br` | Quick overview of all interfaces and their IP/status |
@@ -45,6 +45,48 @@
 
 > [!TIP]
 > Remember to use the "`do`" keyword when executing privileged EXEC commands from configuration mode.
+
+## 3. BASIC DEVICE SETUP
+### 3.1 HOSTNAME & PASSWORDS
+
+| Command | Description |
+| ------- | ----------- |
+| `hostname R1` | Set device hostname |
+| `enable secret C1sc0123` | Set encrypted privileged EXEC password |
+| `service password-encryption` | Encrypt all plaintext passwords in running-config |
+| `no ip domain-lookup` | Stop router trying to DNS-resolve mistyped commands |
+| `banner motd #Unauthorized Access Prohibited#` | Set login warning banner |
+| `line console 0` | Enter console line config |
+| > `password C1sc0123` | Set console password |
+| > `login` | Enable password check on console |
+| > `exec-timeout 5 0` | Auto-logout after 5 mins idle |
+
+### 3.2 CONFIGURING INTERFACES
+
+| Command | Description |
+| ------- | ----------- |
+| `interface g0/0` | Select interface |
+| > `ip address 192.168.1.1 255.255.255.0` | Assign IP Address |
+| > `no shutdown` | enable the interface (interfaces are shutdown by default on routers) |
+| > `description Link to SW1` | Add description label |
+| > `duplex full` | Set duplex (auto/half/full) |
+| > `speed 100` | Set speed in Mbps |
+| `interface l0` | Create/enter loopback interface |
+| > `ip address 1.1.1.1 255.255.255.255` | Assign loopback IP (/32 typical) |
+> [!TIP]
+> Always end with "`no shutdown`", router interfaces are administratively down by default.
+
+### 3.3 SSH CONFIGURATION
+
+| Command | Description |
+| ------- | ----------- |
+| `ip domain-name cisco.com` | Required for RSA key generation |
+| `crypto key generate rsa modulus 2048` | Generate RSA keys for SSH |
+| `ip ssh version 2` | Force SSH version 2 only |
+| `username admin privilege 15 secret C1sc0123` | Create local user with max privilege |
+| `line vty 0 4` | Enter VTY lines |
+| > `transport input ssh` | Allow SSH only |
+| > `login local` | Authenticate using local databse |
 
 > [!NOTE]
 > Goodluck to me :D - CodeAkyra
