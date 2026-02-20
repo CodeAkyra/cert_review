@@ -95,3 +95,5 @@
 
 > [!NOTE]
 > Goodluck to me :D - CodeAkyra
+
+#test wsl ubuntu
