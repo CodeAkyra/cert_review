@@ -81,7 +81,7 @@
 | Command | Description |
 | ------- | ----------- |
 | `ip domain-name cisco.com` | Required for RSA key generation |
-| `crypto key generate rsa modulus 2048` | Generate RSA keys for SSH |
+| `crypto key generate rsa general-key modulus 2048` | Generate RSA keys for SSH |
 | `ip ssh version 2` | Force SSH version 2 only |
 | `username admin privilege 15 secret C1sc0123` | Create local user with max privilege |
 | `line vty 0 4` | Enter VTY lines |
