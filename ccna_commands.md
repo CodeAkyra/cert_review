@@ -2,7 +2,7 @@
 
 ## 1. ROUTER / SWITCH MODE & NAVIGATION
 
-| Command | Description |
+| Command | What It Does |
 | -------- | ----------- |
 | `enable` / `en` | Enter privileged EXEC mode (Router#) |
 | `configure terminal` / `conf t` | Enter Global Configuration mode (Router(config)#) |
@@ -16,7 +16,7 @@
 
 ## 2. ESSENTIAL SHOW COMMANDS
 
-| Command | Description |
+| Command | What It Does |
 | -------- | ----------- |
 | `show running-config` / `sh run` | View current active configuration |
 | `show ip interface brief` / `sh ip in br` | Quick overview of all interfaces and their IP/status |
@@ -49,7 +49,7 @@
 ## 3. BASIC DEVICE SETUP
 ### 3.1 HOSTNAME & PASSWORDS
 
-| Command | Description |
+| Command | What It Does |
 | ------- | ----------- |
 | `hostname R1` | Set device hostname |
 | `enable secret C1sc0123` | Set encrypted privileged EXEC password |
@@ -62,7 +62,7 @@
 
 ### 3.2 CONFIGURING INTERFACES
 
-| Command | Description |
+| Command | What It Does |
 | ------- | ----------- |
 | `interface g0/0` | Select interface |
 | > `ip address 192.168.1.1 255.255.255.0` | Assign IP Address |
@@ -77,7 +77,7 @@
 
 ### 3.3 SSH CONFIGURATION
 
-| Command | Description |
+| Command | What It Does |
 | ------- | ----------- |
 | `ip domain-name cisco.com` | Required for RSA key generation |
 | `crypto key generate rsa general-key modulus 2048` | Generate RSA keys for SSH |
@@ -92,6 +92,28 @@
 ![setup](https://raw.github.com/CodeAkyra/cert_review/main/imgs/basic-setup-3.png)
 ![setup](https://raw.github.com/CodeAkyra/cert_review/main/imgs/basic-setup-4.png)
 ![setup](https://raw.github.com/CodeAkyra/cert_review/main/imgs/basic-setup-5.png)
+
+## 4. VLANs & TRUNKING
+### 4.1 VLAN CONFIGURATION ON A SWITCH
+
+| Command | What It Does |
+| ------- | ----------- |
+| `vlan 10` | Create VLAN 10 (enter VLAN config mode |
+| > `name SALES` | Name the VLAN |
+| `interface f0/1` | Select access port interface |
+| > `switchport mode access` | Set port as access port |
+| > `switchport access vlan 10` | Assign port to VLAN 10 |
+| `interface f0/2` | Select trunk port interface |
+| > `switchport mode trunk` | Force trunk mode |
+| > `switchport trunk native vlan 99` | Set native VLAN (untagged) |
+| > `switchport trunk allowed vlan 10,20,30` | Set allowed VLANs on trunk |
+| > `switchport trunk allowed vlan add 40` | Add a VLAN without removing others |
+| > `switchport trunk allowed vlan remove 40` | Remove specific VLAN from trunk |
+| `show vlan brief` | Verify VLAN assignments |
+| `show interfaces trunk` | Verify trunk configuration |
+
+### 4.2 INTER-VLAN ROUTING (ROUTER-ON-A-STICK)
+### 4.3 LAYER 3 SWITCH INTER-VLAN ROUTING
 
 > [!NOTE]
 > Goodluck to me :D - CodeAkyra
