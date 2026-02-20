@@ -87,5 +87,11 @@
 | > `transport input ssh` | Allow SSH only |
 | > `login local` | Authenticate using local databse |
 
+![setup](https://raw.github.com/CodeAkyra/cert_review/main/imgs/basic-setup-1.png)
+![setup](https://raw.github.com/CodeAkyra/cert_review/main/imgs/basic-setup-2.png)
+![setup](https://raw.github.com/CodeAkyra/cert_review/main/imgs/basic-setup-3.png)
+![setup](https://raw.github.com/CodeAkyra/cert_review/main/imgs/basic-setup-4.png)
+![setup](https://raw.github.com/CodeAkyra/cert_review/main/imgs/basic-setup-5.png)
+
 > [!NOTE]
 > Goodluck to me :D - CodeAkyra
